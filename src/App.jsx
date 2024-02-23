@@ -22,6 +22,7 @@ export default function App(){
   }
 
   function fetchQuestions(data){
+    typeof data === 'string' ? alert(data) :
     setQuestionsList(data);
   }
 
