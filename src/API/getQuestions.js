@@ -49,24 +49,28 @@ import axios from "axios";
 
 export async function getQuestions({amount, category, difficulty, type}) {
   const questions = [];
+  let data;
   try {
     // const token = await fetchToken();
     const url = `https://opentdb.com/api.php?amount=${amount}${category ? "&category=" + category : ""}${difficulty ? "&difficulty=" + difficulty : ""}${type ? "&type=" + type : ""}`;
     const response = await axios.get(url);
     const results = response.data.results;
-    // response.data.response_code === 4 ? 
-    // alert("Not enough questions with these parameters") : null;
-    for (let question of results) {
-      questions.push(question);
+    const response_code = response.data.response_code
+    switch (response_code) {
+      case 0:
+        for (let question of results) {
+          questions.push(question);
+        }
+        return questions;
+      case 1:
+        return "No Results: Could not return results for your query."
+      case 5:
+        return "Too many requests. Please wait 5 seconds before next request."
+      default:
+        return "Error! Please refresh the page!"
     }
-    return questions;
   } catch (error) {
     console.error(error);
     throw error;
   }
 }
-
-export const windowEvent = window.addEventListener('beforeunload', e => {
-  // e.preventDefault();
-  localStorage.clear();
-})

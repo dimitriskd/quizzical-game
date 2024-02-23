@@ -9,13 +9,31 @@ body,html{
 }
 
 body{
-    background-color: #F5F7FB;
     min-height: 100vh;
+    background: 
+    url('src/assets/images/shape-1.png') top right no-repeat fixed,
+    url('src/assets/images/shape-2.png') bottom left no-repeat fixed;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: 250px auto, 500px auto;
+    background-color: #F5F7FB;
+    transition: all .7s
 }
 
 .dark{
-    background-color: #333333;
     color: white;
+    background: 
+        url('src/assets/images/dark-1.png') top right no-repeat fixed,
+        url('src/assets/images/dark-2.png') bottom left no-repeat fixed;
+    background-size: 250px auto, 500px auto;
+    background-color: #333333;
+    box-shadow: 0 0 20px rgba(15, 15, 15, 1);
+    transition: all .7s;
+}
+
+.dark::before{
+    background-image:  brightness(0) saturate(100%) invert(30%) sepia(87%) saturate(1153%) hue-rotate(205deg) brightness(95%) contrast(97%) drop-shadow(-22px 20px 45px #345fd7) url('public/shape-1.png');
+    backdrop-filter: brightness(0) saturate(100%) invert(30%) sepia(87%) saturate(1153%) hue-rotate(205deg) brightness(95%) contrast(97%) drop-shadow(-22px 20px 45px #345fd7);
 }
 
 .gameSelect--input {
@@ -41,3 +59,26 @@ body{
     transform: scale(1.05, 1.05);
     transition: ease .2s;
 }
+
+.alert{
+    transition: ease-in 1s;
+}
+
+.answer{
+    @apply px-2 py-1 mr-3 ring-1 ring-gray-500 rounded-lg select-none hover:bg-gray-200 active:bg-gray-300;
+    background-color: #F5F7FB
+}
+
+.answer.selected{
+    @apply ring-0;
+    background-color: #e1eaf8;
+}
+
+@media screen and (max-width: 900px) {
+    body{
+        background-size: 120px auto, 200px auto;
+    }
+    .dark{
+        background-size: 120px auto, 200px auto;
+    }
+  }

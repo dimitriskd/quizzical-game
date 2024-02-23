@@ -5,7 +5,7 @@ import { getQuestions } from "../API/getQuestions.js";
 export default function GameSelection(props) {
 
   const [selectData, setSelectData] = useState([]);
-  const [form, setForm] = useState({amount: 5});
+  const [form, setForm] = useState({amount: 1});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,7 +33,7 @@ export default function GameSelection(props) {
 
   async function formSubmit(e) {
     e.preventDefault();
-    if(form.amount <= 10)
+    if(form.amount <= 5 && form.amount > 0)
         try {
             const data = await getQuestions(form);
             props.fetchQuestions(data);
@@ -53,7 +53,7 @@ export default function GameSelection(props) {
   });
 
   return (
-    <div className="container mx-auto w-72 md:w-auto flex flex-col flex-wrap justify-center items-center">
+    <div className="container w-80 md:w-auto flex flex-col flex-wrap justify-center items-center">
       <h1 className="text-4xl md:text-6xl font-bold tracking-wide">
         Quizzical
       </h1>
@@ -72,8 +72,8 @@ export default function GameSelection(props) {
                 id="amount"
                 type="number"
                 className="gameSelect--input md:ml-3 md:w-80"
-                min="5"
-                max="10"
+                min="1"
+                max="5"
                 placeholder="Max number of questions 10"
                 onChange={(e) => formData(e)}
                 required

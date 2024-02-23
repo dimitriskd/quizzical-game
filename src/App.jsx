@@ -1,13 +1,15 @@
-import Background from "./components/Background";
 import DarkToggle from "./components/DarkToggle";
 import GameSelection from "./components/GameSelection";
+import QuestionsScreen from "./components/QuestionsScreen";
+import { Slide, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react";
-import { windowEvent } from "./API/getQuestions";
 import "./styles/App.css";
 
 export default function App(){
   const [ darkMode, setDarkMode ] = useState(false);
   const [ questionsList, setQuestionsList ] = useState([]);
+  const [flag,setFlag] = useState(false);
   
   useEffect(() => {
     darkMode ?
@@ -17,22 +19,55 @@ export default function App(){
 
   }, [darkMode]);
 
+  useEffect(()=>{
+    const notify = () => toast.warn(questionsList, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Slide,
+      });
+      notify();
+  },[questionsList])
+
   function darkToggle(){
     setDarkMode(oldMode => !oldMode);
   }
 
   function fetchQuestions(data){
     setQuestionsList(data);
+    setFlag(true)
   }
 
-  return (
-    <main className="flex justify-center items-center h-screen">
-      { windowEvent }
-      <DarkToggle darkToggle={ darkToggle } darkMode={ darkMode }/>
+  const toastContainerProps = {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    newestOnTop: false,
+    closeOnClick: true,
+    rtl: false,
+    pauseOnFocusLoss: true,
+    draggable: true,
+    pauseOnHover: true,
+    theme: "dark",
+    transition: Slide
+  };
 
-      <GameSelection fetchQuestions={ fetchQuestions }/>
-      <Background darkMode={ darkMode }/>
-    </main>
+  return (
+    <section className="relative h-screen">
+      <div className="absolute top-0 left-0">
+        <DarkToggle darkToggle={ darkToggle } darkMode={ darkMode }/>
+      </div>
+      <section className="flex flex-wrap justify-center items-center h-full ">
+        {!flag ? <GameSelection fetchQuestions={ fetchQuestions }/> : <QuestionsScreen questions={questionsList} />}
+      </section>
+      <ToastContainer {...toastContainerProps} />
+      <a className="fixed text-xs z-auto" href="https://www.vecteezy.com/free-vector/wavy">Wavy Vectors by Vecteezy</a>
+    </section>
   );
 
 }
