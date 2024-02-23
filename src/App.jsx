@@ -17,8 +17,6 @@ export default function App(){
 
   }, [darkMode]);
 
-  useEffect(() => console.log(questionsList) , [questionsList])
-
   function darkToggle(){
     setDarkMode(oldMode => !oldMode);
   }

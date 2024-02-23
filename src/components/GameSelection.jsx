@@ -5,9 +5,7 @@ import { getQuestions } from "../API/getQuestions.js";
 export default function GameSelection(props) {
 
   const [selectData, setSelectData] = useState([]);
-  const [form, setForm] = useState({
-    amount: 5
-  });
+  const [form, setForm] = useState({amount: 5});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,8 +18,6 @@ export default function GameSelection(props) {
     };
     fetchData();
   }, []);
-
-  console.log(form)
 
   function formData(e) {
     const key = e.target.id;
