@@ -1,0 +1,29 @@
+.topStyle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 250px;
+}
+
+.bottomStyle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+}
+
+@media screen and (max-width: 900px) {
+  .topStyle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 150px;
+  }
+
+  .bottomStyle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 120px;
+  }
+}

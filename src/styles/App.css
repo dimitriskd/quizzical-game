@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,html{
+    margin: 0;
+    font-family: "Karla", sans-serif;
+}
+
+body{
+    background-color: #F5F7FB;
+    min-height: 100vh;
+}
+
+.dark{
+    background-color: #333333;
+    color: white;
+}
+
+.gameSelect--input {
+    @apply bg-gray-200 shadow-md dark:bg-zinc-800 dark:shadow-zinc-800 p-2 rounded outline-none focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-500 focus:border-transparent;
+}
+
+.gameSelect--select {
+    @apply bg-gray-200 shadow-md dark:bg-zinc-800 dark:shadow-zinc-800 p-2.5 rounded outline-none focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-500 focus:border-transparent;
+}
+
+.gameSelect--select:hover {
+    cursor: pointer;
+}
+
+.submit{
+    border-radius: 4px;
+    font-size: large;
+    font-weight: 600;
+    background-color: #4d5b9e;
+}
+
+.submit:hover{
+    transform: scale(1.05, 1.05);
+    transition: ease .2s;
+}
