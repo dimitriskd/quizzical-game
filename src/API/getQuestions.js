@@ -74,8 +74,3 @@ export async function getQuestions({amount, category, difficulty, type}) {
     throw error;
   }
 }
-
-export const windowEvent = window.addEventListener('beforeunload', e => {
-  // e.preventDefault();
-  localStorage.clear();
-})

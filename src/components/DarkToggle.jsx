@@ -1,7 +1,7 @@
 export default function DarkToggle(props) {
   return (
     <section className="darkMode">
-      <label className="inline-flex items-center cursor-pointer m-2 absolute top-0 left-0">
+      <label className="inline-flex items-center cursor-pointer m-2">
         <input
           type="checkbox"
           value=""
