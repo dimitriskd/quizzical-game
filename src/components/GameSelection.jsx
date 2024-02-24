@@ -33,7 +33,7 @@ export default function GameSelection(props) {
 
   async function formSubmit(e) {
     e.preventDefault();
-    if(form.amount <= 10 && form.amount > 0)
+    if(form.amount <= 10 && form.amount >= 5)
         try {
             const data = await getQuestions(form);
             props.fetchQuestions(data);
@@ -41,7 +41,7 @@ export default function GameSelection(props) {
             console.log(error);
         }
     else
-        alert("Please max amount of questions 10")
+        alert("Please the amount to be between 5 and 10")
   }
 
   const optionElements = selectData.map((option) => {
@@ -72,7 +72,7 @@ export default function GameSelection(props) {
                 id="amount"
                 type="number"
                 className="gameSelect--input md:ml-3 md:w-80"
-                min="1"
+                min="5"
                 max="10"
                 placeholder="Max number of questions 10"
                 onChange={(e) => formData(e)}

@@ -90,7 +90,7 @@ export default function QuestionsScreen(props) {
             ))}
             <button onClick={gameEnded? props.resetGame :endGame} className="submit text-white m-auto my-4 py-2 px-3">{gameEnded? "Play Again" : "Submit"}</button>
             <Modal correctAnswers={correctAnswers} numberOfQuestions={props.questions.length} gameEnded={gameEnded}/>
-            {correctAnswers > questions.length/2 && <Confetti />}
+            {correctAnswers > questions.length/2 && <Confetti className='h-full w-full' />}
         </section>
     );
 }
