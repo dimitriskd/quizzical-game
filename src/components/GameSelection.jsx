@@ -53,7 +53,7 @@ export default function GameSelection(props) {
   });
 
   return (
-    <div className="container w-80 md:w-auto flex flex-col flex-wrap justify-center items-center md:h-screen">
+    <div className="h-full w-80 md:w-auto flex flex-col flex-wrap justify-center items-center md:h-screen">
       <h1 className="text-4xl md:text-6xl font-bold tracking-wide">
         Quizzical
       </h1>

@@ -20,6 +20,13 @@ body{
     transition: all .7s
 }
 
+#root{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .dark{
     color: white;
     background: 
@@ -68,10 +75,10 @@ body{
     @apply ring-0 bg-blue-200 dark:bg-blue-200 dark:text-black;
 }
 .wrong{
-    @apply ring-0 bg-red-500 dark:text-black;
+    @apply ring-0 bg-red-500 dark:bg-red-500 dark:text-black;
 }
 .correct{
-    @apply ring-0 bg-green-500 dark:text-black;
+    @apply ring-0 bg-green-500 dark:bg-green-500 dark:text-black;
 }
 
 @media screen and (max-width: 900px) {
