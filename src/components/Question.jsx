@@ -4,7 +4,6 @@ export default function Question(props) {
     const updateAnswers = (answer) => {
         props.updateAnswers(props.question.id, answer);
     };
-
     return (
         <article id={props.question.id} className="w-full mx-1 my-1">
             <div className="flex-row mb-3">
@@ -15,7 +14,7 @@ export default function Question(props) {
                     <button
                         key={props.question.id + index}
                         onClick={() => updateAnswers(answer)}
-                        className={`answer ${props.selectedAnswers.find((ans) => ans.id === props.question.id && ans.selected === answer) ? 'selected' : ''}`}
+                        className={`answer ${props.question.selected === answer ? 'selected' : ''}`}
                     >
                         {decode(answer)}
                     </button>

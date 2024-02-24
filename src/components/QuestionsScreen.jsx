@@ -2,26 +2,20 @@ import Question from './Question';
 import { useEffect, useState } from 'react';
 import { decode } from 'html-entities';
 import { customAlphabet } from 'nanoid';
+import Confetti from 'react-confetti';
 const nanoid = customAlphabet('qwertyuasdfghjzxcvbn_-', 10);
 
 export default function QuestionsScreen(props) {
     const [questions, setQuestions] = useState(initializeQuestions);
-    const [selectedAnswers, setSelectedAnswers] = useState(questions);
-    const [correctAnswers, setCorrectAnswers] = useState([]);
+    const [correctAnswers, setCorrectAnswers] = useState(0);
 
     useEffect(() => {
         setCorrectAnswers(() => {
-            const newCorrect = [];
-            selectedAnswers.map(answer => {
-                if(answer.correct === true){
-                    newCorrect.push(answer);
-                }
-            })
-            console.log(newCorrect)
-            return newCorrect;
+            const correct2 = questions.filter(question => question.correct === true);
+            return correct2;
         });
-    },[selectedAnswers])
-
+    },[questions])
+    console.log(correctAnswers)
     function initializeQuestions() {
         const questionsData = props.questions.map((question) => {
             const answers = [];
@@ -36,8 +30,8 @@ export default function QuestionsScreen(props) {
             };
         });
         return questionsData;
-    }
-    
+    };
+
     function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
         while (currentIndex > 0) {
@@ -47,11 +41,11 @@ export default function QuestionsScreen(props) {
             array[randomIndex], array[currentIndex]];
         }
         return array;
-      }
+      };
 
     const updateAnswers = (id, answer) => {
-        setSelectedAnswers((oldAnswers) => {
-            const newArray = [...oldAnswers];
+        setQuestions((oldQuestions) => {
+            const newArray = [...oldQuestions];
             const question = newArray.find(ans => ans.id == id);
             question.correct = question.correct_answer === answer ? true : false
             question["selected"] = answer;
@@ -59,10 +53,6 @@ export default function QuestionsScreen(props) {
         });
     };
 
-    const checkResults = () => {
-        
-    }
-    
     return (
         <section className="flex flex-wrap h-fit my-32 m-4 md:w-1/2 lg:w-1/2">
             {questions.map((question) => (
@@ -70,10 +60,9 @@ export default function QuestionsScreen(props) {
                     key={question.id}
                     question={question}
                     updateAnswers={updateAnswers}
-                    selectedAnswers={selectedAnswers}
                 />
             ))}
-            <button onClick={checkResults} className="submit text-white m-auto my-4 py-2 px-3">Submit</button>
+            <button className="submit text-white m-auto my-4 py-2 px-3">Submit</button>
         </section>
     );
 }
