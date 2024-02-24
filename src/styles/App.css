@@ -60,18 +60,18 @@ body{
     transition: ease .2s;
 }
 
-.alert{
-    transition: ease-in 1s;
-}
-
 .answer{
-    @apply px-2 py-1 mr-3 ring-1 ring-gray-500 rounded-lg select-none hover:bg-gray-200 active:bg-gray-300;
+    @apply px-2 py-1 mr-3 ring-1 ring-gray-500 rounded-lg select-none hover:bg-gray-200 active:bg-gray-300 dark:ring-black my-1 dark:bg-zinc-800 dark:text-white;
     background-color: #F5F7FB
 }
-
-.answer.selected{
-    @apply ring-0;
-    background-color: #e1eaf8;
+.selected{
+    @apply ring-0 bg-blue-200 dark:bg-blue-200 dark:text-black;
+}
+.wrong{
+    @apply ring-0 bg-red-500 dark:text-black;
+}
+.correct{
+    @apply ring-0 bg-green-500 dark:text-black;
 }
 
 @media screen and (max-width: 900px) {

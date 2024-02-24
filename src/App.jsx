@@ -58,15 +58,15 @@ export default function App(){
   };
 
   return (
-    <section className="relative h-screen">
+    <section className="h-fit">
       <div className="absolute top-0 left-0">
         <DarkToggle darkToggle={ darkToggle } darkMode={ darkMode }/>
       </div>
-      <section className="flex flex-wrap justify-center items-center h-full ">
+      <section className="flex flex-wrap justify-center items-center h-fit ">
         {!flag ? <GameSelection fetchQuestions={ fetchQuestions }/> : <QuestionsScreen questions={questionsList} />}
       </section>
       <ToastContainer {...toastContainerProps} />
-      <a className="fixed text-xs z-auto" href="https://www.vecteezy.com/free-vector/wavy">Wavy Vectors by Vecteezy</a>
+      <a className="fixed bottom-0 text-xs z-auto" href="https://www.vecteezy.com/free-vector/wavy">Wavy Vectors by Vecteezy</a>
     </section>
   );
 
