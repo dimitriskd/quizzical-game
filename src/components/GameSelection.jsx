@@ -33,7 +33,7 @@ export default function GameSelection(props) {
 
   async function formSubmit(e) {
     e.preventDefault();
-    if(form.amount <= 5 && form.amount > 0)
+    if(form.amount <= 10 && form.amount > 0)
         try {
             const data = await getQuestions(form);
             props.fetchQuestions(data);
@@ -41,7 +41,7 @@ export default function GameSelection(props) {
             console.log(error);
         }
     else
-        alert("Please max amount of questions 5")
+        alert("Please max amount of questions 10")
   }
 
   const optionElements = selectData.map((option) => {
@@ -53,7 +53,7 @@ export default function GameSelection(props) {
   });
 
   return (
-    <div className="container w-80 md:w-auto flex flex-col flex-wrap justify-center items-center">
+    <div className="container w-80 md:w-auto flex flex-col flex-wrap justify-center items-center md:h-screen">
       <h1 className="text-4xl md:text-6xl font-bold tracking-wide">
         Quizzical
       </h1>
@@ -73,7 +73,7 @@ export default function GameSelection(props) {
                 type="number"
                 className="gameSelect--input md:ml-3 md:w-80"
                 min="1"
-                max="5"
+                max="10"
                 placeholder="Max number of questions 10"
                 onChange={(e) => formData(e)}
                 required
