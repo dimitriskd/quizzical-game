@@ -40,32 +40,23 @@ export default function App(){
 
   function fetchQuestions(data){
     setQuestionsList(data);
-    setFlag(true)
+    setFlag(true);
   }
 
-  const toastContainerProps = {
-    position: "top-center",
-    autoClose: 5000,
-    hideProgressBar: false,
-    newestOnTop: false,
-    closeOnClick: true,
-    rtl: false,
-    pauseOnFocusLoss: true,
-    draggable: true,
-    pauseOnHover: true,
-    theme: "dark",
-    transition: Slide
-  };
+  function resetGame(){
+    setFlag(false);
+  }
+
 
   return (
-    <section className="h-fit">
+    <section className="flex items-center justify-center">
       <div className="absolute top-0 left-0">
         <DarkToggle darkToggle={ darkToggle } darkMode={ darkMode }/>
       </div>
-      <section className="flex flex-wrap justify-center items-center h-fit ">
-        {!flag ? <GameSelection fetchQuestions={ fetchQuestions }/> : <QuestionsScreen questions={questionsList} />}
+      <section className="flex flex-wrap justify-center items-center">
+        {!flag ? <GameSelection fetchQuestions={ fetchQuestions }/> : <QuestionsScreen resetGame={resetGame} questions={questionsList} />}
       </section>
-      <ToastContainer {...toastContainerProps} />
+      <ToastContainer />
       <a className="fixed bottom-0 text-xs z-auto" href="https://www.vecteezy.com/free-vector/wavy">Wavy Vectors by Vecteezy</a>
     </section>
   );
