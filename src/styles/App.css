@@ -11,8 +11,8 @@ body,html{
 body{
     min-height: 100vh;
     background: 
-    url('src/assets/images/shape-1.png') top right no-repeat fixed,
-    url('src/assets/images/shape-2.png') bottom left no-repeat fixed;
+    url('/images/shape-1.png') top right no-repeat fixed,
+    url('/images/shape-2.png') bottom left no-repeat fixed;
     background-size: auto;
     background-repeat: no-repeat;
     background-size: 250px auto, 500px auto;
@@ -30,8 +30,8 @@ body{
 .dark{
     color: white;
     background: 
-        url('src/assets/images/dark-1.png') top right no-repeat fixed,
-        url('src/assets/images/dark-2.png') bottom left no-repeat fixed;
+        url('/images/dark-1.png') top right no-repeat fixed,
+        url('/images/dark-2.png') bottom left no-repeat fixed;
     background-size: 250px auto, 500px auto;
     background-color: #333333;
     box-shadow: 0 0 20px rgba(15, 15, 15, 1);

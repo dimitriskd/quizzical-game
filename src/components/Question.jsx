@@ -1,6 +1,6 @@
 import { decode } from 'html-entities';
-import tick from "../assets/images/tick.svg";
-import cross from "../assets/images/cross.svg";
+import tick from "/images/tick.svg";
+import cross from "/images/cross.svg";
 
 export default function Question(props) {
 
