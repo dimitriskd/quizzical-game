@@ -57,7 +57,6 @@ export default function App(){
         {!flag ? <GameSelection fetchQuestions={ fetchQuestions }/> : <QuestionsScreen resetGame={resetGame} questions={questionsList} />}
       </section>
       <ToastContainer />
-      <a className="fixed bottom-0 text-xs z-auto" href="https://www.vecteezy.com/free-vector/wavy">Wavy Vectors by Vecteezy</a>
     </section>
   );
 

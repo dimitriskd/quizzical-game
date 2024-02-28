@@ -140,6 +140,8 @@ export default function GameSelection(props) {
           </button>
         </div>
       </form>
+      <a className="fixed bottom-0 left-1 text-xs z-auto" href="https://www.vecteezy.com/free-vector/wavy">Wavy Vectors by Vecteezy</a>
+      <a className="fixed bottom-0 right-1 z-auto" href="https://github.com/dimitriskd">Made by Dimitris K.</a>
     </div>
   );
 }
