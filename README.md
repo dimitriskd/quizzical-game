@@ -2,7 +2,7 @@
 
 Quizzical is a web app quiz game made using the [Open Trivia DB](https://opentdb.com/api_config.php). It gets trivia questions from Open Trivia API and then based on the answer you get a score. There are multiple difficulties and categories and you can get up to 10 questions at a time. This project is the final solo project from Scrimba's React Course. It's made using React and Tailwind CSS.
 
-App link deployed with Vercel https://quizzical-game-mu.vercel.app/
+App link deployed with Vercel (https://quizzical-game-mu.vercel.app/).
 
 ## Build with:
 HTML  
